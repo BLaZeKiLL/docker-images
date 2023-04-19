@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mc_valhelsia:
+    # image: itzg/minecraft-server:java8-graalvm-ce # Performance
+    image: itzg/minecraft-server:java8-multiarch # Compatibility
+    ports:
+      - 25565:25565
+    environment:
+      MEMORY: 8G
+      EULA: "TRUE"
+      TYPE: "CURSEFORGE"
+      VERSION: "1.16.5"
+      ENABLE_AUTOPAUSE: "TRUE"
+      SEED: "2509834578902345790" # whatever you want
+      SERVER_NAME: "The DarkSide" # 
+      ONLINE_MODE: "FALSE" # ;), you know
+      CF_SERVER_MOD: "/modpacks/Valhelsia+3-3.5.1-SERVER.zip" #Make sure the modpack zip file exists in the ./minecraft-mods folder
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      # attach a directory relative to the directory containing this compose file
+      - ./minecraft-data:/data # Save file
+      - ./minecraft-mods:/modpacks # Modpack

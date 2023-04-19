@@ -1,0 +1,7 @@
+*.DS_Store
+
+/minecraft-data
+/minecraft-mods
+
+!/minecraft-data/.gitkeep
+!/minecraft-mods/.gitkeep
