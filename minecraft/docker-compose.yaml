@@ -23,19 +23,21 @@ services:
       - ./minecraft-data:/data # Save file
       - ./minecraft-mods:/modpacks # Modpack
   mc_valhelsia_vanilla_extended:
-    # image: itzg/minecraft-server:java8-graalvm-ce # Performance
+    # image: itzg/minecraft-server:java17-graalvm-ce # Performance
     image: itzg/minecraft-server:java17 # Compatibility
     ports:
       - 25565:25565
     environment:
       MEMORY: 8G
-      EULA: "TRUE"
+      EULA: true
       TYPE: "CURSEFORGE"
       VERSION: "1.18.2"
-      ENABLE_AUTOPAUSE: "TRUE"
-      SEED: "2509834578902345790" # whatever you want
-      SERVER_NAME: "The DarkSide" # 
-      ONLINE_MODE: "FALSE" # ;), you know
+      LEVEL: "The DarkSide"
+      ENABLE_AUTOPAUSE: true
+      SERVER_NAME: "The DarkSide"
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+      MOTD: "Welcome to The DarkSide :3"
+      SEED: "He is just like Raj!!!" # whatever you want
       CF_SERVER_MOD: "/modpacks/Valhelsia+Enhanced+Vanilla-1.4.2b-SERVER.zip" #Make sure the modpack zip file exists in the ./minecraft-mods folder
     tty: true
     stdin_open: true
